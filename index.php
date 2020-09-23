@@ -31,43 +31,9 @@ $widget->text_image("De beste auto's", $tekst, "image/auto.jpg");
     ?>
 </section>
 
-<style>
-    .slideshow_container {
-        width: 100%;
-    }
-    .slideshow_image {
-        width: 100%;
-        transition: 1s;
-        position: absolute;
-        margin-top: 0;
-        margin-left: 0;
-        opacity: 0;
-    }
-</style>
-
-<section class="slideshow_container">
-    <img src="image/eten1.jpg" class="slideshow_image">
-    <img src="image/eten2.jpg" class="slideshow_image">
-    <img src="image/eten3.jpg" class="slideshow_image">
-</section>
-
-<script>
-    var slides = document.getElementsByClassName('slideshow_image');
-    var interval = setInterval(slideShow, 5000);
-    var slide = 0;
-    slideShow();
-
-    function slideShow() {
-        if (slide == (slides.length-1)) {
-            slides[slide].style.opacity = '0';
-            slide = 0;
-            slides[slide].style.opacity = '100';
-        }
-        slides[slide].style.opacity = '0';
-        slide += 1;
-        slides[slide].style.opacity = '100';
-    }
-</script>
+<?php
+$widget->slideShow('800px', 'image/eten1.jpg', 'image/eten2.jpg', 'image/eten3.jpg');
+?>
 
 </body>
 </html>
