@@ -57,8 +57,14 @@ class widgets {
                 
                 .text_image_widget div {
                     width: 100%;
+                    margin: 0;
                 }
-            }
+                
+                .text_image_widget div img{
+                    width: 80%;
+                    margin: 0 10%;
+                    height: auto;
+                }
         </style>
 EOT;
             $text_imageCss = true;
@@ -163,16 +169,18 @@ EOT;
 EOT;
     }
 
-    function slideShow($height = '800px', $slide_url0 = null, $slide_url1 = null, $slide_url2 = null, $slide_url3 = null, $slide_url4 = null, $slide_url5 = null, $slide_url6 = null, $slide_url7 = null, $slide_url8 = null, $slide_url9 = null, $slide_url10 = null) {
+    function slideShow($interval = '5', $height = '800px', $slide_url0 = null, $slide_url1 = null, $slide_url2 = null, $slide_url3 = null, $slide_url4 = null, $slide_url5 = null, $slide_url6 = null, $slide_url7 = null, $slide_url8 = null, $slide_url9 = null, $slide_url10 = null) {
         global $slideCss;
         global $slideShow;
+        $height1000 = intval($height)/1.5 . 'px';
+        $height600 = intval($height)/2 . 'px';
 
         if ($slideCss == false) {
             echo <<<EOT
             <style>
                 .slideshow_container {
                     width: 100%;
-                    height: 800px;
+                    height: $height;
                     margin: 50px 0;
                     position: relative;
                     overflow: hidden;
@@ -247,6 +255,27 @@ EOT;
                     border: solid 3px white;
                     transition: 0.5s;
                 }
+                
+                @media (max-width: 1150px) {
+                    .pijl1:hover {
+                        box-shadow: none;
+                    }
+                    .pijl2:hover {
+                        box-shadow: none;
+                    }
+                }
+                
+                @media (max-width: 1000px) {
+                    .slideshow_container {
+                        height: $height1000;
+                    }
+                }
+                
+                @media (max-width: 600px) {
+                    .slideshow_container {
+                        height: $height600;
+                    }
+                }
             </style>
 EOT;
             $slideCss = true;
@@ -275,7 +304,7 @@ EOT;
         echo <<<EOT
         <script>
             var slides = document.getElementsByClassName('slide$slideShow');
-            var interval = setInterval(slideShow$slideShow, 5000);
+            var interval = setInterval(slideShow$slideShow, $interval);
             var slide = 0;
             slideShow$slideShow(null);
         

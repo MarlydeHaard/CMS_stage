@@ -32,7 +32,7 @@ $widget->text_image("De beste auto's", $tekst, "image/auto.jpg");
 </section>
 
 <?php
-$widget->slideShow('800px', 'image/eten1.jpg', 'image/eten2.jpg', 'image/eten3.jpg');
+$widget->slideShow('4000','800px', 'image/eten1.jpg', 'image/eten2.jpg', 'image/eten3.jpg');
 ?>
 
 </body>
